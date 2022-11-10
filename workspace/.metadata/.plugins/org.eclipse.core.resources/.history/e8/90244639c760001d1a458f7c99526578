@@ -1,0 +1,46 @@
+package hr;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/employee/emp_list")
+public class EmployeeListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.print("<html>");
+		out.print("<body>");
+		
+		out.print("<div><a href='../'>홈으로</a></div>");
+		out.print("<div><a href='index.html'>사원관리</a></div>");
+		out.print("<hr>");
+		out.print("<h2>사원목록</h2>");
+		out.print("<table border='1'>");
+		out.print("<tr><th>사번</th><th>사원명</th><th>부서코드</th><th>급여</th>"
+				+ "<th>입사일자</th></tr>");
+		out.print("<tr>");
+		
+		out.printf("<td>%d</td><td>%s</td><td>%d</td><td>%d</td><td>%s</td>"
+				,100, "홍길동",60,5000,"2020-12-20");
+		
+		out.print("</tr>");
+		
+		
+		
+		out.print("</table>");
+		out.print("</body>");
+		out.print("</html>");
+	
+	
+	}
+
+}
