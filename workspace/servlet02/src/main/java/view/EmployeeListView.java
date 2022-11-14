@@ -34,17 +34,23 @@ public class EmployeeListView extends HttpServlet {
 		out.print("<hr>");
 		
 		out.print("<h2>Command 패턴 실습 결과 - 조회</h2>");
+		
+		
+		out.print("<div><a href='employee/new.html'>사원등록</a></div>");
+		
 		out.print("<table border = '1'>");
-		out.print("<tr><th>사번</th><th>사원명</th><th>부서</th></tr>");
+		out.print("<tr><th>사번</th><th>사원명</th><th>부서</th><th>해고</th><th>정보수정</th></tr>");
 		
 		for (EmployeeDTO dto : list) {
-			out.printf("<tr><td>%d</td><td>%s</td><td>%d</td></tr>",dto.getEmployee_id(),dto.getName(),dto.getDepartment_id());
+			out.printf("<tr><td>%d</td><td>%s</td><td>%d</td><td><a href='delete.do?id=%d'>해고</a></td><td><a href='update.do?id=%d'>수정</a></td></tr>",dto.getEmployee_id(),dto.getName(),dto.getDepartment_id(),dto.getEmployee_id(),dto.getEmployee_id());
 		}
 		
 		
 		out.print("</table>");
 		out.print("</body>");
 		out.print("</html>");
+		
+		
 	}
 
 }

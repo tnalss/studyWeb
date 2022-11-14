@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import employee.command.EmployeeDelete;
+import employee.command.EmployeeInsert;
 import employee.command.EmployeeSelect;
+import employee.command.EmployeeUpdate;
+import employee.command.EmployeeUpdateInput;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -39,17 +43,39 @@ public class FrontController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher(view); //응답할화면의 이름을 view에저장
 			rd.forward(request, response);
 			
-			
 		} else if (uri.equals("/insert.do")) {
 			business = "저장 요청에 대한 비지니스 로직";
-			view = "저장 요청에 대한 응답화면";
+			view = "select.do";
+			
+			//비지니스로직
+			EmployeeInsert command = new EmployeeInsert();
+			command.execute(request, response);
+			
+			
+			//응답화면 연결 insert, delete, update 처리가 실행되는 요청후 화면 연결은 redirect로 해주자.
+			response.sendRedirect(view);
+			
 			
 		} else if (uri.equals("/update.do")) {
 			business = "수정 요청에 대한 비지니스 로직";
-			view = "수정 요청에 대한 응답화면";			
+			view = "select.do";			
+			
+			EmployeeUpdateInput command = new EmployeeUpdateInput();
+			command.execute(request, response);
+			
+			
+			response.sendRedirect(view);
+			
+			
 		} else if (uri.equals("/delete.do")) {
 			business = "삭제 요청에 대한 비지니스 로직";
-			view = "삭제 요청에 대한 응답화면";			
+			view = "select.do";		
+			
+			EmployeeDelete command = new EmployeeDelete();
+			command.execute(request, response);
+			
+			response.sendRedirect(view);
+			
 		}
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out=response.getWriter();

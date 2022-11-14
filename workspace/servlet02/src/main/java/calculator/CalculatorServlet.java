@@ -18,6 +18,8 @@ public class CalculatorServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		try {
 		//request.setCharacterEncoding("utf-8");
 
 		int num1 = Integer.parseInt(request.getParameter("num1"));
@@ -35,7 +37,14 @@ public class CalculatorServlet extends HttpServlet {
 		//redirect에서는 값을 불러올 수 없으니까 세션에 값을 담아보자.
 		request.getSession().setAttribute("result", result);
 		
-		
+		} catch (Exception e) {
+//			RequestDispatcher rd = request.getRequestDispatcher("calculator_error");
+//			rd.forward(request, response);
+			
+			request.setAttribute("error", e);
+			//에러를 담아보내주자
+			request.getRequestDispatcher("caculator_error").forward(request, response);
+		}
 		
 		// 응답화면
 		/*
@@ -64,7 +73,9 @@ public class CalculatorServlet extends HttpServlet {
 		//rd.forward(request, response);
 		
 		//2.redirect 연결
-		response.sendRedirect("calculator_redirect");
+		
+		
+		//response.sendRedirect("calculator_redirect");
 		
 	}
 

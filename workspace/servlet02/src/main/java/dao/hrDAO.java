@@ -172,8 +172,26 @@ public class hrDAO {
 				System.out.println("사번 : " +id + "삭제 완료");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+		}finally {
+			disconnect();
 		}
 		
+	}
+	public void emp_force(int id) {
+		connect();
+		String sql = "DELETE job_history WHERE employee_id = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int count = ps.executeUpdate();
+			if (count>0)
+				System.out.println("history 삭제 완료");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			disconnect();
+		}
 		
 	}
 

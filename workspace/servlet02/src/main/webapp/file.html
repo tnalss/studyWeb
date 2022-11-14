@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일업로드</title>
+</head>
+<body>
+<div><a href="./">홈으로</a></div>
+<hr>
+<h2>파일업로드</h2>
+<!--
+ 파일을 업로드하려면 form 태그에 지정해야할 속성
+ 1. 보내는 방식을 post로만 지정해야한다! method='post'
+ 2. 전송데이터형식을 파일데이터형식으로 지정 : enctype='multipart/form-data'(date로 자주쓰는 경우가많음 form을 from으로 쓰기도)
+ 
+ 
+ 
+ 
+ -->
+	<form method= 'post' action="upload" enctype='multipart/form-data'>
+	<div>	<input type="text" name='name' />	</div>
+	<div>	<input type="file" name='attach1' />	</div>
+	<div>	<input type="file" name='attach2' />	</div>
+	
+	<input type="submit" value='업로드하기'/>
+	</form>
+
+
+</body>
+</html>
