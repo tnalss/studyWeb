@@ -157,7 +157,7 @@
 
 	<Resource auth="Container" description="Employees Database for HR Applications" driverClassName="oracle.jdbc.driver.OracleDriver" name="hr" password="0000" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="hr"/>
  
-</Context><Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\servlet03" path="/servlet03" reloadable="true" source="org.eclipse.jst.jee.server:servlet03"/></Host>
+</Context><Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\servlet03" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:servlet03"/></Host>
     </Engine>
   </Service>
 </Server>

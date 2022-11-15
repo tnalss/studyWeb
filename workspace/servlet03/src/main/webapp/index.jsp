@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.util.Date,java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,27 @@
 </head>
 <body>
 <div><a href = 'sum.jsp'>합 계산하기</a></div>
-<h3>홈</h3>
+<div><a href = 'out.jsp'>출력하기</a></div>
+<div><a href = 'calculator.jsp'>계산기</a></div>
+
+<%@	include file="include/today.jsp" %>
+
+<hr>
+
+<h3>홈[ <%=pageContext.getAttribute("pageInfo") %>
+
+<%= request.getAttribute("requestInfo") %> ]</h3>
+
+<% 
+Date date = new Date();
+SimpleDateFormat df = new SimpleDateFormat("yyyy년 MM월 dd일 E a hh시 mm분 ss초");
+String now = df.format(date);
+%>
+<div>날짜정보 : <%= date %></div>
+<div>현재 : <%=now %></div>
+<hr>
+
+
 <div> jsp에서서 선언할 수 있는 것들 </div>
 <ul>
 <li>html태그선언</li>
@@ -18,7 +39,7 @@
 <li>JSTL</li>
 </ul>
 
-
+<%@	include file="include/footer.jsp" %>
 
 </body>
 </html>
