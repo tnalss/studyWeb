@@ -10,7 +10,7 @@
 <body>
 <div><a href = 'sum.jsp'>합 계산하기</a></div>
 <div><a href = 'out.jsp'>출력하기</a></div>
-<div><a href = 'calculator.jsp'>계산기</a></div>
+<div><a href = 'calculate.jsp'>계산기</a></div>
 
 <%@	include file="include/today.jsp" %>
 
@@ -22,9 +22,18 @@
 
 <% 
 Date date = new Date();
+
 SimpleDateFormat df = new SimpleDateFormat("yyyy년 MM월 dd일 E a hh시 mm분 ss초");
 String now = df.format(date);
 %>
+<%
+String result = (String) request.getAttribute("result");
+if(result != null)
+	out.print(result);
+
+%>
+
+
 <div>날짜정보 : <%= date %></div>
 <div>현재 : <%=now %></div>
 <hr>
@@ -39,7 +48,11 @@ String now = df.format(date);
 <li>JSTL</li>
 </ul>
 
-<%@	include file="include/footer.jsp" %>
+<%-- <%@	include file="include/footer.jsp" %> --%>
+<jsp:include page="include/footer.jsp">
 
+<jsp:param name='email' value='test@naver.com'/>
+<jsp:param name='phone' value='010-555-5555'/>
+</jsp:include>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <body>
 <div class=""><a href="./">홈으로</a></div>
 <%@ include file='include/today.jsp' %>
-<form action="calculator_result.jsp" method="post">
+<form action="calculate_result.jsp" method="post">
 
 <div class="">
 <input type="text" name="num1"/>

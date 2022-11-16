@@ -4,7 +4,6 @@ public class Calculator {
 	
 	private int result;
 	
-	
 	public Calculator(int num1, int num2 , String operator) {
 		switch (operator) {
 	

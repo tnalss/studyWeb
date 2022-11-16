@@ -36,11 +36,11 @@ jsp클래스 내에 들어가는 부분
  
  5. 주석 : Ctrl + Shift + / , Ctrl + Shift + C
 <!-- --> : html태그에 대한 주석
-<%-- --> :  jsp태그에 대한 주석 =>소스보기에서 보이지 않음. 
+<%-- --%> :  jsp태그에 대한 주석 =>소스보기에서 보이지 않음. 
 /**/ , // : java코드에 해당하는 스크립트릿, 선언에 있는 코드주석
 
 
-jsp 내장객체
+*jsp 내장객체
 jsp파일이 서블릿으로 변환될때 자동생성되는 객체
 service method에 선언된 변수에 해당한다.
 스크립트릿과 표현식에서 사용된다.
@@ -74,5 +74,115 @@ session.removeAttribute(속성명); 속성명자체를 없애버리는 메소드
 
 3. calculate_result.jsp에서 화면을 홈으로 forward한다.
 홈화면(index.jsp)에서 연산 결과를 출력한다. 예) 계산결과 : 10+20 = 30
+ 
+ 
+ 
+ 주소창에 보내지는 값 : 파라미터
+ 요청url?파라미터명1=값1&파라미터명2=값2&파라미터명3=값3
+ 
+ 파라미터로 보내진 값은 모두 문자열로
+ 파라미터에 담긴 값을 알려면
+ String 값1 = request.getParameter("파라미터명1");
+ String 값2 = request.getParameter("파라미터명2");
+ String 값3 = request.getParameter("파라미터명3");
+ 
+ 그런데 실제 보낸 값이 숫자라면
+ String -> int로 데이터타입을 바꿔야한다.
+ String은레퍼런스 타입이고, int는 프리미티브 타입이므로 형변환불가.
+ int a = 10;
+ long b = (long) a; // int -> long
+ 
+ wrapper클래스인 Integer 클래스에는
+ 특정 데이터타입을 int또는 Integer타입으로 변환해주는 메소드가 있다.
+ 그메소드를 사용해 String->int 또는 String -> Integer로변환한다.
+ String -> Int : integer.parseInt()
+ String -> Integer : Integer.valueOf() -> int로 unboxing됨
+ 결국 두 메소드의 결과값은 int타입에 담을 수 있다.
+ 
+ 어떤값을 응답화면에서 출력하려면 어딘가 값이 저장되어 있어야한다.
+ 요청에 대한 처리시 request scope에 데이터를 담으면
+ 데이터를 담는 처리를 한 페이지와 forward로 응답하는 페이지에서 request scope에 저장된 값을 알 수있다.
+ request scope에 값 저장 : request.setAttribute("속성명",저장값);
+ 변수명 = 값; 과같다.
+ 저장값은 int, String, boolean, Date, MemberDTO, ArrayList..뭐든 가능
+ 
+ request scope의 값 확인 : request.getAttribute("속성명");
+ 							변수명과같다.
+ 데이터 확인 시에는 실제 저장한 값의 데이터 타입 변수에 담아야하는데.
+ request.getAttribute()의 리턴 타입은  Object.
+ **						
+ 실제저장한 타입으로 변환하려면 !!!실제저장한 타입과 맞게 형변환해줘야한다!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ Object -> int , String, boolean, Date, MemberDTO, ArrayList
+ 
+ 모든 Primitive 타입은 래퍼 클래스를 갖고 있다.
+ int -> Integer, char -> Character , byte -> Byte, boolean -> Boolean,  
+ 
+ 
+ *JSP 표준 액션 태그<jsp: ~> 이런 형식
+ 1. include 액션 : <jsp:include page=''/>   => 동적       (얘는 page 지시어는 file) 
+ 				<jsp:include page=''> ~ </jsp:include>
+ cf) include 지시어 : <%@ include file =''%> => 정적
+ 두개 차이 지시어는 정적인 파일. (인클루드된 애들은 java파일이 안생겼었다)
+ include 액션은 각각 컴파일이 된다 -> 동적
+ 
+ <jsp:include page="include/footer.jsp"/>
+ 
+ 인클루드 태그 사이에 값을 파라미터로 전송할 수도 있다.
+<jsp:include page="include/footer.jsp">
+	<jsp:param name='email' value='test@naver.com'/>
+	<jsp:param name='phone' value='010-555-5555'/>
+</jsp:include>=> 사실쓸일은 없ㄷ ㅏ매페이지마다 파라미터 보내기는 빡세지
+ 
+ 
+ 
+ 
+ ******************자바빈(JavaBean)
+ jsp에서 데이터를 저장하고, 관리하기 위한 클래스에 해당 : DTO (자바빈이 dto다 라고 생각)
+ 자바빈 내부데이터는 setter메소드와 getter메소드를 사용한다!
+ 
+ setProperty 액션 -> setter 메소드와 비슷
+ 
+ getProperty 액션 -> getter 메소드와 비슷
+ 
+ useBean 액션 -> 새로운 자바빈(DTO)객체를 생성하거나 기존에 존재하는 자바빈 객체의 접근에 사용
+ 
+ Property는? 필드라고 생각하자.
+ 
+ 
+ dto에 해당하는 클래스를 하나만든다. MemberDTO
+ 
+ 로그인정보를담아보자. login result
+ 
+ 
+ 
+ 데이터출력 : 표현식 <%= %> 을 사용해 왔는데
+ 이제 -> EL(Expression Language)을 사용한다.
+
+EL의 표현방법 : ${}
+모든 속성 (attribute) : page scope < request scope < session scope < application scope 에
+
+EL은 모든 속성을 출력하는데 사용한다!! 
+ 
+ 새프로젝트 생성
+ 
+ scope 폴더만들기 -> scope_data.jsp만들기
+ 
+ 
+ EL을 학습완료하면
+ param폴더만들고 form_data.jsp페이지만들기
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
  
  
