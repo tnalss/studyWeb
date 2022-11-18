@@ -1,6 +1,8 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +33,17 @@
 <div class="">EL을 사용한 방식 </div>
 
 <div class="">취미 :
-${paramValues.sports[0] }
-${paramValues.sports[1] }
-${paramValues.sports[2] }
-${paramValues.sports[3] }
+<%-- ${paramValues.sports[0] } --%>
+<%-- ${paramValues.sports[1] } --%>
+<%-- ${paramValues.sports[2] } --%>
+<%-- ${paramValues.sports[3] } --%>
+
+<!-- 코어라이브러리 이용 -->
+<c:forEach items='${paramValues.sports}' var='s' varStatus='state'>
+	${state.first ? '' :',' } ${s}
+</c:forEach>
+
+
 
 </div>
 

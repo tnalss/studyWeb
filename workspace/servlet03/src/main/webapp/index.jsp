@@ -12,7 +12,11 @@
 <div><a href = 'out.jsp'>출력하기</a></div>
 <div><a href = 'calculate.jsp'>계산기</a></div>
 
-<%@	include file="include/today.jsp" %>
+<!-- 지시어 include -->
+<%-- <%@	include file="include/today.jsp" %>
+ --%>
+<!-- jsp표준액션태그 include -->
+<jsp:include page="include/today.jsp">
 
 <hr>
 
@@ -48,7 +52,7 @@ if(result != null)
 <li>JSTL</li>
 </ul>
 
-<%-- <%@	include file="include/footer.jsp" %> --%>
+<%--<%@	include file="include/footer.jsp" %> --%>
 <jsp:include page="include/footer.jsp">
 
 <jsp:param name='email' value='test@naver.com'/>
