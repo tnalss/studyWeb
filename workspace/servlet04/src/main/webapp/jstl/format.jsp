@@ -42,6 +42,29 @@
 		
 	</ul>
 
+	<h4>숫자포맷</h4>
+	<ul>
+		<li>
+		천단위 콤마 (기본값) : <fmt:formatNumber value='123450000' />
+		</li>
+		<li>
+		천단위 콤마 해제 : <fmt:formatNumber value='123450000' groupingUsed="false"/>
+		</li>
+		<li>
+		사용자 지정 형식 : pattern="#,###,###"<br> 
+		<fmt:formatNumber value='123450000' pattern="#,###.0"/>
+		</li>
+		<li>
+		사용자 지정 형식 : type='percent' <br>
+		<fmt:formatNumber value='0.32' type='percent'/>
+		</li>
+		<li>
+		사용자 지정 형식 : type="currency" <br>
+		<fmt:formatNumber value='100000' type='currency'/>
+		</li>
+		
+		
+	</ul>
 
 
 </body>

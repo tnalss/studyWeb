@@ -10,10 +10,10 @@
 </head>
 <body>
 	<div>
-		<a href="../">홈으로</a>
+		<a href = '<c:url value = "/" />'>홈으로 </a>
 	</div>
 	<div>
-		<a href="./">JSTL 메인</a>
+		<a href= '<c:url value = "/jstl/" />'>JSTL 메인</a>
 	</div>
 	<hr />
 

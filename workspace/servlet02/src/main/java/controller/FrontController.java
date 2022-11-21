@@ -27,7 +27,7 @@ public class FrontController extends HttpServlet {
 		// 빼거나 길이다음부터 출력하던가.
 		uri = uri.substring( context.length() );  // (/select.do) 이 부분
 
-		String business = "",view="";;
+		String business = "",view="";
 		
 		if ( uri.equals("/select.do") ) {
 					
