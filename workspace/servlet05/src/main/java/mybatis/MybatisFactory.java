@@ -18,8 +18,7 @@ public class MybatisFactory {
 	 * 없는 개꿀 } }
 	 */
 	public static SqlSessionFactory getInstance() {
-		
-		
+			
 		if (factory == null) {
 			String resource = "mybatis/config.xml";
 			InputStream inputStream;

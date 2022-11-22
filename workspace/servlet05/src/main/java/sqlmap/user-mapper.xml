@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="user">
+	<select resultType="String" id="select_name">
+		select name from tbl_java_user
+		where id='user1'
+	</select>
+
+	<select resultType="Integer" id="select_money">
+		select money from tbl_java_user
+		where id='user1'
+	</select>
+
+	<!-- 전체 사용자이름목록 하나하나는 문자열이라 string이 resultType이다. -->
+	<select resultType="String" id="name_all">
+		select name from tbl_java_user
+	</select>
+
+	<!-- 전체 사용자 정보 목록 resultType이중요!! setter메소드가 있으면 mybatis가 알아서 다 넣어줌 개꿀 -->
+	<select resultType="dto.UserDTO" id="user_list">
+		select * from tbl_java_user
+	</select>
+
+	<!-- 전체상품목록 -->
+	<select resultType="dto.ProductDTO" id="product_list">
+		select * from tbl_java_product order by 1
+	</select>
+</mapper>
+

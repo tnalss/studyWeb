@@ -15,7 +15,6 @@ public class TestDAO {
 	public Date select_today() {
 		connect();
 		Date today = sql.selectOne("test.select_today");
-		
 		return today;
 	}
 	public String select_now() {

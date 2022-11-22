@@ -22,7 +22,6 @@
   <select resultType="integer" id="user_count" >
 	select count(*) from tbl_java_user
   </select>
-  
-  
+   
   
 </mapper>

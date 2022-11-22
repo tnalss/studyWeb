@@ -12,5 +12,14 @@
 	<div>
 		<a href="<c:url value='/test.do'/>">조회테스트</a>
 	</div>
+	<div>
+		<a href="<c:url value='/user.ju'/>">회원정보</a>
+	</div>
+	<div>
+		<a href="<c:url value='/userAll.ju'/>">전체회원이름</a>
+	</div>
+		<div>
+		<a href="<c:url value='/productList.ju'/>">전체 상품 목록</a>
+	</div>
 </body>
 </html>
