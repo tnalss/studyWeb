@@ -14,7 +14,7 @@
 
 <c:forEach var= 'dto' items='${user_list }'>
 <tr>
-<td>${dto.id}  </td>
+<td><a href='info.ju?id=${dto.id}'>${dto.id}</a>  </td>
 <td>${dto.name}</td>
 <td>${dto.email}</td>
 <td>${dto.admin}</td>

@@ -17,6 +17,15 @@ public class UserDAO {
 		sql = factory.openSession(true);
 	}
 	
+	//선택한 사용자의 정보조회 메소드
+	public UserDTO select_user_info(String id) {
+		connect();
+		// 파라미터로 받아온 아이디도 같이 보내준다.
+		UserDTO dto = sql.selectOne("user.user_info",id);
+		return dto;
+	}
+	
+	
 	public String whatName() {
 		connect();
 		String name = sql.selectOne("user.select_name");

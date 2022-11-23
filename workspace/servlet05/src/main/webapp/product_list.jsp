@@ -14,7 +14,7 @@
 <tr><th>상품번호</th><th>책 제목</th><th>회사명</th><th>가격</th><th>재고</th></tr>
 <c:forEach var= 'dto' items='${list }'>
 <tr>
-<td>${dto.num}  </td>
+<td><a href='productInfo.ju?no=${ dto.num }'> ${dto.num}</a>  </td>
 <td>${dto.name}</td>
 <td>${dto.company}</td>
 <td>${dto.price}</td>

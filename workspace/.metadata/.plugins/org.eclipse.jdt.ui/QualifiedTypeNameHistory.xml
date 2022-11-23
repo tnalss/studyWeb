@@ -19,4 +19,5 @@
     <fullyQualifiedTypeName name="mybatis.MybatisFactory"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="command.UserCommand"/>
 </qualifiedTypeNameHistroy>

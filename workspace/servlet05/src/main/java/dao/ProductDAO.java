@@ -21,5 +21,11 @@ public class ProductDAO {
 		List<ProductDTO> list = sql.selectList("user.product_list");
 		return list;
 	}
+
+	public ProductDTO select_product_info(int num) {
+		connect();
+		ProductDTO dto = sql.selectOne("user.product_info",num);
+		return dto;
+	}
 	
 }

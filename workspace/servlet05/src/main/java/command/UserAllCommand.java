@@ -23,6 +23,7 @@ public class UserAllCommand implements Command {
 		//이거 다하면 dto도 해보자.
 		List<UserDTO> user_list = dao.select_user_list();
 		request.setAttribute("user_list", user_list);
+		//다하면 전체상품목록 출력 해보기
 	}
 
 }
