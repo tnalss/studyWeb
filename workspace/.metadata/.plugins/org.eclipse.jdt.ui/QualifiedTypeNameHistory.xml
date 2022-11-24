@@ -20,4 +20,6 @@
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="command.UserCommand"/>
+    <fullyQualifiedTypeName name="org.apache.taglibs.standard.resources.Resources"/>
+    <fullyQualifiedTypeName name="mybatis.HanulFactory"/>
 </qualifiedTypeNameHistroy>

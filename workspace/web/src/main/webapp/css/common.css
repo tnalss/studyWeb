@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.container{
+	width:60%;
+	margin-left:0px;
+}
+
+a{
+	color:inherit;
+	text-decoration:none;
+}

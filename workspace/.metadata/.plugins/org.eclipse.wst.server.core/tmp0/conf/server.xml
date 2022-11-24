@@ -152,9 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\servlet05" path="/db" reloadable="true" source="org.eclipse.jst.jee.server:servlet05">
-	<Resource auth="Container" description="Smart13 hanul miniproject" driverClassName="oracle.jdbc.driver.OracleDriver" name="smart" password="0000" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.223.59.99:1521:xe" username="smart13"/>
-</Context></Host>
+      <Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\web" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:web"/></Host>
     </Engine>
   </Service>
 </Server>
