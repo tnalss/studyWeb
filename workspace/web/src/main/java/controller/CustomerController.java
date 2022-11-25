@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import common.Command;
 import customer.command.CustomerInfo;
 import customer.command.CustomerList;
+import customer.command.CustomerUpdate;
 
 @WebServlet("*.cu")
 public class CustomerController extends HttpServlet {
@@ -36,6 +37,24 @@ public class CustomerController extends HttpServlet {
 			command.exec(request, response);
 			//응답화면
 			view = "customer/info.jsp";
+		} else if ( uri.equals("/modify.cu")) {
+			//고객정보수정화면 요청
+			//비지니스 로직
+			command = new CustomerInfo();
+			command.exec(request, response);
+					
+			//응답화면
+			view="customer/modify.jsp";
+		} else if ( uri.equals("/update.cu")) {
+			//고객 정보 수정 저장처리 요청
+			command = new CustomerUpdate();
+			command.exec(request, response);
+			//응답화면 연결
+			//view="customer/info.jsp";
+			view="info.cu?id="+request.getParameter("id");
+			redirect= true;
+			// 성별이 좁아서 못들어가는데??????????
+			//필터가없어서!@#!@#
 		}
 		
 		// 화면연결 기본은 forward , redirect는 true인 경우

@@ -24,6 +24,7 @@
 					<table class="table">
 						<thead>
 							<tr>
+							<th scope="col"></th>
 								<th scope="col">고객명</th>
 								<th scope="col">이메일</th>
 								<th scope="col">성별</th>
@@ -33,6 +34,7 @@
 						<tbody>
 							<c:forEach var="dto" items='${list}'>
 								<tr>
+								<td scope="col"></td>
 									<td>
 									<a href="info.cu?id=${dto.id}">
 									${dto.name}</a></td>

@@ -31,5 +31,11 @@ public class CustomerDAO {
 		CustomerDTO dto = sql.selectOne("customer.info",id);
 		return dto;
 	}
+	public void customer_update(CustomerDTO dto) {
+		connect();
+		sql.update("customer.update",dto);
+		
+		
+	}
 
 }

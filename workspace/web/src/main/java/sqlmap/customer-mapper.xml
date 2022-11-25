@@ -11,5 +11,10 @@
   <select resultType="customer.CustomerDTO" id="info" >
     select * from customer where id = #{id}
   </select>
+  <update id="update">
+  	update customer
+  	set name=#{name}, gender=#{gender}, email=#{email}, phone = #{phone}
+  	where id = #{id}
+  </update>
   
 </mapper>
