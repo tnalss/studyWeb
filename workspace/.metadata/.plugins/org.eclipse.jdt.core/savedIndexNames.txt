@@ -24,7 +24,6 @@ INDEX VERSION 1.131+D:\Study_Web\workspace\.metadata\.plugins\org.eclipse.jdt.co
 3121969119.index
 2624441535.index
 969749426.index
-1243057733.index
 1126728198.index
 552594470.index
 2234070322.index

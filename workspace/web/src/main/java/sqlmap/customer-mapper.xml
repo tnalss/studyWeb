@@ -16,5 +16,11 @@
   	set name=#{name}, gender=#{gender}, email=#{email}, phone = #{phone}
   	where id = #{id}
   </update>
+  <insert id="insert">
+  	INSERT INTO customer(name, gender,email,phone) VALUES(#{name},#{gender},#{email},#{phone} )
+  </insert>
+  <delete id="delete">
+  	DELETE FROM customer WHERE id = #{id}
+  </delete>
   
 </mapper>

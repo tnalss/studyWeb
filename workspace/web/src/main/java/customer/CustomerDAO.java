@@ -37,5 +37,15 @@ public class CustomerDAO {
 		
 		
 	}
+	public void customer_insert(CustomerDTO dto) {
+		connect();
+		sql.insert("customer.insert",dto);
+		
+	}
+	public void customer_delete(int id) {
+		connect();
+		sql.delete("customer.delete",id);
+		
+	}
 
 }

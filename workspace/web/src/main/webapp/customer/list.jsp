@@ -47,6 +47,11 @@
 					
 						</tbody>
 					</table>
+					
+					
+				<div class="text-center">
+							<button type="button" onclick='location="new.cu"' class="btn btn-primary">신규 고객</button>
+						</div>
 				</div>
 
 

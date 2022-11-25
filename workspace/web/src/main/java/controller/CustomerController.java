@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.Command;
+import customer.command.CustomerDelete;
 import customer.command.CustomerInfo;
+import customer.command.CustomerInsert;
 import customer.command.CustomerList;
 import customer.command.CustomerUpdate;
 
@@ -55,6 +57,29 @@ public class CustomerController extends HttpServlet {
 			redirect= true;
 			// 성별이 좁아서 못들어가는데??????????
 			//필터가없어서!@#!@#
+		} else if ( uri.equals("/new.cu")) {
+			
+			//응답화면
+			view="customer/new.jsp";
+			
+		} else if ( uri.equals("/insert.cu")) {
+			//비지니스 로직
+			command = new CustomerInsert();
+			command.exec(request, response);
+			
+			
+			//응답화면 연결
+			view="list.cu";
+			//u , i ,d 는 redirect!@#!@#!@#!@#!@#
+			redirect=true;
+		}else if ( uri.equals("/delete.cu")) {
+			
+			command = new CustomerDelete();
+			command.exec(request, response);
+			
+			//응답화면
+			view="list.cu";
+			redirect=true;
 		}
 		
 		// 화면연결 기본은 forward , redirect는 true인 경우
