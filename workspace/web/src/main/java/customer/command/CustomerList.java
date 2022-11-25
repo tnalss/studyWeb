@@ -19,6 +19,8 @@ public class CustomerList implements Command {
 		
 		// 화면에 출력할 수 있또록 request에 담는다.
 		request.setAttribute("list", list);
+		
+		request.getSession().setAttribute("category", "cu");
 	}
 
 }

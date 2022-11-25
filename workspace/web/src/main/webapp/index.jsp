@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+session.removeAttribute("category");
+%>
 	<div class="d-flex" id="wrapper">
 		<!-- Sidebar-->
 		<jsp:include page='include/sidebar.jsp'/>

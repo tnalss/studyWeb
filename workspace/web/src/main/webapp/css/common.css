@@ -9,3 +9,10 @@ a{
 	color:inherit;
 	text-decoration:none;
 }
+
+
+.category{
+	background: #0b5ed7;	
+	color:white;
+	font-weight: 900;
+}

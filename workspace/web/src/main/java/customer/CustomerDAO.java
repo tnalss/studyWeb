@@ -12,6 +12,11 @@ public class CustomerDAO {
 	private SqlSession sql;
 	
 	
+	
+	//****************************CRUD*****************************
+	//Create (insert) , Read (select) , Update (update) , Delete (delete)
+	
+	
 	private void connect() {
 		SqlSessionFactory factory = HanulFactory.getInstance();
 		sql = factory.openSession(true);		
