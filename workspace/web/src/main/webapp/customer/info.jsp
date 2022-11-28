@@ -49,25 +49,20 @@
 
 						<button type="button" onclick='location="modify.cu?id=${dto.id}"'
 							class="btn btn-primary">회원정보 수정</button>
-						<button type="button" onclick='go_delete()' class="btn btn-secondary">정보
-							삭제</button>
+						<button type="button" onclick='go_delete()'
+							class="btn btn-secondary">정보 삭제</button>
 					</div>
 				</div>
-
-
-
-
 
 			</div>
 		</div>
 	</div>
 	<script>
-
-function go_delete(){
-	if( confirm('[${dto.name}] 고객정보 정말 삭제?')){
-	location="delete.cu?id=${dto.id}";
-}
-	}
-</script>
+		function go_delete() {
+			if (confirm('[${dto.name}] 고객정보 정말 삭제?')) {
+				location = "delete.cu?id=${dto.employee_id}";
+			}
+		}
+	</script>
 </body>
 </html>

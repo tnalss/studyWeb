@@ -16,3 +16,28 @@ a{
 	color:white;
 	font-weight: 900;
 }
+
+ul{
+	list-style: none;
+	align-items: center;
+	padding: 0;
+}
+
+#list-top{
+	margin:0 auto;
+	display:flex;
+	justify-content: space-between;	
+}
+#list-top ul{
+	display:flex;
+}
+#list-top ul li:not(:first-child){
+	margin-left: 5px
+}
+
+select{
+	width: 20rem;
+	height : 32px;
+	cursor : pointer;
+	padding-left: 1rem;
+}

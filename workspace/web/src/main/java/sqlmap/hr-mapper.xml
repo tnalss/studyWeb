@@ -2,12 +2,62 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- 
-<mapper namespace="hr">
-  <select resultType="employee.EmployeeDTO" id="select" >
-    select * from employees
-  </select>
 
-  
+
+<mapper namespace="hr">
+	<select resultType="hr.EmployeeDTO" id="list">
+		SELECT e.first_name||'
+		'||e.last_name name, e.*,
+		d.department_name,
+		j.job_title
+		FROM employees
+		e LEFT JOIN departments d
+		ON
+		e.department_id=d.department_id
+		INNER JOIN
+		jobs j ON e.job_id = j.job_id
+		<if test="department_id != -1">
+			<choose>
+				<when test="department_id==0">WHERE e.department_id is null</when>
+				<otherwise>WHERE e.department_id = #{department_id}</otherwise>
+
+			</choose>
+			<!-- <if test="department_id ==0 "> WHERE e.department_id is null</if> 
+				<if test="department_id !=0">WHERE e.department_id = #{department_id}</if> -->
+		</if>
+		ORDER BY employee_id
+	</select>
+
+
+	<select resultType="hr.EmployeeDTO" id="info">
+		SELECT e.first_name||'
+		'||e.last_name name, e.*,
+		d.department_name,
+		j.job_title,m.first_name||' '||m.last_name manager_name
+		FROM employees
+		e LEFT JOIN departments d
+		ON e.department_id=d.department_id
+		INNER JOIN
+		jobs j ON e.job_id = j.job_id
+		LEFT JOIN employees m on
+		e.manager_id=m.employee_id
+		WHERE e.employee_id = #{id}
+	</select>
+
+	<select id="department_list" resultType="hr.DepartmentDTO">
+		select distinct
+		department_id, nvl(department_name,'소속없음') department_name
+		from
+		employees left join departments
+		using ( department_id)
+		order by
+		department_name
+	</select>
+
+
+
+	<delete id="delete">
+		DELETE FROM employees WHERE employee_id = #{id}
+	</delete>
+
 </mapper>

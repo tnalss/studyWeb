@@ -19,7 +19,27 @@
 			<jsp:include page='../include/navigation.jsp' />
 			<!-- Page content-->
 			<div class="container-fluid">
-				<h2 class="mt-4">사원목록</h2>
+				<h2 class="mt-4 text-center">사원목록</h2>
+				<form action="list.hr" method="post">
+					<div id='list-top' class='container mt-5'>
+						<ul>
+							<li>부서명</li>
+							<li><select onchange="$('form').submit()" name = "department_id">
+							<option value="-1" >전체 부서</option>
+							<c:forEach var='d' items='${departments}'>
+							
+									<option value="${d.department_id}" ${department_id eq d.department_id? 'selected' : ''}> ${d.department_name}</option>
+									
+							</c:forEach>
+							<!-- null인경우 안나오니까 이상함 -->
+							</select></li>
+					
+						</ul>
+					
+					
+					</div>
+				</form>
+
 				<table class="table">
 					<thead>
 						<tr>
@@ -34,9 +54,10 @@
 						<c:forEach var="dto" items='${list}'>
 							<tr>
 								<td scope="col">${dto.employee_id}</td>
-								<td>${dto.first_name}</td>
-								<td>${dto.department_id}</td>
-								<td>${dto.job_id}</td>
+								<td><a href="info.hr?id=${dto.employee_id}">
+										${dto.name}</a></td>
+								<td>${dto.department_name}</td>
+								<td>${dto.job_title}</td>
 								<td>${dto.hire_date}</td>
 							</tr>
 						</c:forEach>
@@ -45,7 +66,10 @@
 					</tbody>
 				</table>
 
-
+				<div class="text-center">
+					<button type="button" onclick='location="new.hr"'
+						class="btn btn-primary">신규 사원</button>
+				</div>
 
 			</div>
 		</div>
