@@ -19,7 +19,8 @@ public class HrDAO {
 	// 신규사원 등록
 	public void employee_regist(EmployeeDTO dto) {
 		connect();
-		sql.insert("", dto);
+		sql.insert("hr.insert", dto);
+		sql.close();
 	}
 
 	// 전체사원목록조회

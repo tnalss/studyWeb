@@ -35,8 +35,11 @@
 							</select></li>
 					
 						</ul>
-					
-					
+						<ul>
+							<li>
+							<input type="button" onclick='location="new.hr"' value='신규등록' class='btn btn-primary'/>
+							</li>
+						</ul>				
 					</div>
 				</form>
 
@@ -66,10 +69,7 @@
 					</tbody>
 				</table>
 
-				<div class="text-center">
-					<button type="button" onclick='location="new.hr"'
-						class="btn btn-primary">신규 사원</button>
-				</div>
+
 
 			</div>
 		</div>

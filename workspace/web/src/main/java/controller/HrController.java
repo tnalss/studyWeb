@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.Command;
 import hr.command.EmployeeCode;
+import hr.command.EmployeeDelete;
 import hr.command.EmployeeInfo;
+import hr.command.EmployeeInsert;
 import hr.command.EmployeeList;
 import hr.command.EmployeeUpdate;
 
@@ -56,6 +58,25 @@ public class HrController extends HttpServlet {
 			
 			view="info.hr?id="+request.getParameter("employee_id");
 			redirect=true;
+		} else if ( uri.equals("/delete.hr")) {
+			
+			cmd = new EmployeeDelete();
+			cmd.exec(request, response);
+			
+			view="list.hr";
+			redirect=true;
+				
+		} else if ( uri.equals("/new.hr")) {
+			cmd=new EmployeeCode();
+			cmd.exec(request, response);
+			
+			view="employee/new.jsp";
+		} else if ( uri.equals("/insert.hr")) {
+			cmd = new EmployeeInsert();
+			cmd.exec(request, response);
+			
+			view = "list.hr";
+			redirect = true;
 		}
 		
 

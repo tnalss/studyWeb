@@ -14,6 +14,7 @@ public class EmployeeDelete implements Command {
 		int id = Integer.parseInt( request.getParameter("id") );
 		HrDAO dao = new HrDAO();
 		dao.employee_delete(id);
+		
 	}
 
 }

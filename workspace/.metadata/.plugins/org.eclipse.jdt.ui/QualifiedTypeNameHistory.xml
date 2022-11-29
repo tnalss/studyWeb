@@ -22,6 +22,6 @@
     <fullyQualifiedTypeName name="mybatis.HanulFactory"/>
     <fullyQualifiedTypeName name="mybatis.HrFactory"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="hr.EmployeeDTO"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>

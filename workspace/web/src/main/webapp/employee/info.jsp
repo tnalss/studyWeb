@@ -72,19 +72,22 @@
 					<button type="button"
 						onclick='location="modify.hr?id=${dto.employee_id}"'
 						class="btn btn-primary">사원정보 수정</button>
-					<button type="button" onclick='go_delete()'
-						class="btn btn-secondary">정보 삭제</button>
+					<button type="button"
+						class="btn btn-secondary delete">정보 삭제</button>
+<!-- 					<button type="button" onclick="go_delete()"
+						class="btn btn-secondary">정보 삭제</button> -->
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<script>
-		function go_delete() {
-			if (confirm('[${dto.name}] 사원정보 정말 삭제?')) {
-				location = "delete.hr?id=${dto.employee_id}";
-			}
+	$('.delete').click(function(){
+		if(confirm('사번 [${dto.employee_id}] 정말로 삭제?')){
+			location='delete.hr?id=${dto.employee_id}';
 		}
+		
+	})
 	</script>
 </body>
 </html>
