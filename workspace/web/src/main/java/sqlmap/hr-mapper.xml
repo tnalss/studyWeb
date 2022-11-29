@@ -53,8 +53,36 @@
 		order by
 		department_name
 	</select>
+	
+	<!-- 전체 부서목록 -->
+	<select id="department_list_all" resultType="hr.DepartmentDTO">
+		SELECT department_id, department_name
+		FROM departments
+		ORDER BY department_name
+	
+	</select>
+	<!-- 전체 업무 목록 -->
+	<select id="job_list_all" resultType="hr.JobDTO">
+		SELECT * from jobs ORDER BY JOB_title
+	
+	</select>
+<!-- 매니저로 지정할 전체 사원목록 별칭 사용하는 이유 생각해보기-->
+	<select id="manager_list_all" resultType="hr.ManagerDTO">
+		SELECT employee_id manager_id, first_name||' '||last_name manager_name
+		FROM employees
+		order by manager_name
+	</select>
 
 
+<!-- 변경저장 메소드 -->
+	<update id="update">
+		UPDATE employees
+		SET last_name = #{last_name}, first_name=#{first_name},
+		email=#{email}, phone_number=#{phone_number}, salary=#{salary},
+		hire_date=#{hire_date},job_id=#{job_id}, department_id=#{department_id},
+		manager_id=#{manager_id}
+		WHERE employee_id = #{employee_id}
+	</update>
 
 	<delete id="delete">
 		DELETE FROM employees WHERE employee_id = #{id}

@@ -26,6 +26,7 @@ public class HrDAO {
 	public List<EmployeeDTO> employee_list() {
 		connect();
 		List<EmployeeDTO> list = sql.selectList("hr.list");
+		sql.close();
 		return list;
 	}
 	
@@ -33,12 +34,14 @@ public class HrDAO {
 	public List<DepartmentDTO> department_list() {
 		connect();
 		List<DepartmentDTO> dto = sql.selectList("hr.department_list");
+		sql.close();
 		return dto;
 	}
 	// 선택한 부서의 사원목록조회
 	public List<EmployeeDTO> employee_list(int department_id){
 		connect();
 		List<EmployeeDTO> list = sql.selectList("hr.list",department_id);
+		sql.close();
 		return list;
 	}
 
@@ -46,6 +49,7 @@ public class HrDAO {
 	public EmployeeDTO employee_info(int id) {
 		connect();
 		EmployeeDTO dto = sql.selectOne("hr.info", id);
+		sql.close();
 		return dto;
 	}
 
@@ -53,11 +57,47 @@ public class HrDAO {
 	public void employee_update(EmployeeDTO dto) {
 		connect();
 		sql.update("hr.update", dto);
+		sql.close();
 	}
 	
 	//선택한 사원정보 삭제
 	public void employee_delete(int id) {
 		connect();
 		sql.delete("hr.delete",id);
+		sql.close();
 	}
+	
+	
+	//전체 부서 목록
+	public List<DepartmentDTO> department_list_all() {
+		connect();
+		List<DepartmentDTO> list = sql.selectList("hr.department_list_all");
+		sql.close();
+		return list;
+	}
+	
+	
+	//전체 업무목록
+	
+	public List<JobDTO> job_list_all() {
+		connect();
+		List<JobDTO> list = sql.selectList("hr.job_list_all");
+		sql.close();
+		return list;
+	}
+	
+	//관리자로 지정할 전체사원 목록
+	
+	public List<ManagerDTO> manager_list_all() {
+		connect();
+		List<ManagerDTO> list = sql.selectList("hr.manager_list_all");
+		sql.close();
+		return list;
+	}
+	
+	
+	
+	
+	
+	
 }
