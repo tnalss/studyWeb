@@ -79,8 +79,14 @@ function fn_login(){
 		
 	});
 }
-$('#userpw').keyup(function(e){
 
+$('#userid').keypress(function(e){
+	if(e.keyCode==13)
+		$('#userpw').focus();
+})
+
+$('#userpw').keypress(function(e){
+	//console.log(e);
 	//엔터키 누를때만
 	if(e.keyCode==13)
 	fn_login();
@@ -91,7 +97,7 @@ function emptyCheck(){
 	$('.chk').each(function(){
 		if( $(this).val()=='' ){
 			var tag = $(this).attr('placeholder');
-			console.log(tag);
+			
 			alert(tag + '를 입력하세요');
 			$(this).focus();
 			ok = false;
@@ -108,6 +114,7 @@ function emptyCheck(){
 			//ㄴㅓ무 불편하니까 라이브러리를 써먹자 메이븐 ㄱㄱ
 			// jackson검색해서 라이브러리 추가 해주기!
 이거 라이브러리 설치하면 response가 파란색으로 true false로 나와야 되는데안나옴
+왜 안되지??????
 
 
 -->
