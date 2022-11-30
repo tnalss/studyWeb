@@ -13,16 +13,23 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+				<li class="nav-item active">${loginInfo.name}</li>
+				
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 					role="button" data-bs-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">Dropdown</a>
 					<div class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#!">Action</a> <a
-							class="dropdown-item" href="#!">Another action</a>
+						<!-- 로그인하지 않은 경우 -->
+						<c:if test ='${empty loginInfo}'>
+						<a class="dropdown-item" href="login.mb">로그인</a> <a
+							class="dropdown-item" href="join.mb">회원가입</a></c:if>
+						<!-- 로그인한 경우 -->
+						<c:if test ='${not empty loginInfo }'>
+						<a class="dropdown-item" href="#!">My page</a> <a
+							class="dropdown-item" href="logout.mb">로그아웃</a></c:if>
+							<!--  -->
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#!">Something else here</a>
 					</div></li>

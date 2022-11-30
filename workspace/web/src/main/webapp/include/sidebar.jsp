@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="images/hanul.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/common.css?<%=new java.util.Date() %>" rel="stylesheet" />
@@ -16,11 +16,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light"><a href='<c:url value="/"/>'>스마트 웹 &amp; 앱</a></div>
+                <div class="sidebar-heading border-bottom bg-light"><a href='<c:url value="/index"/>'>스마트 웹 &amp; 앱</a></div>
                 <div class="list-group list-group-flush">
-                    <a class="${category eq 'cu' ? 'category' : ''} list-group-item list-group-item-action list-group-item-light p-3" href="list.cu">고객 관리</a>
-                    <a class="${category eq 'hr' ? 'category' : ''} list-group-item list-group-item-action list-group-item-light p-3" href="list.hr">사원 관리</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
+                    <a class="${category eq 'cu' ? 'category ' : ''} list-group-item list-group-item-action list-group-item-light p-3" href="list.cu">고객 관리</a>
+                    <a class="${category eq 'hr' ? 'category ' : ''} list-group-item list-group-item-action list-group-item-light p-3" href="list.hr">사원 관리</a>
+                    <a class="${category eq 'no' ? 'category ' : ''} list-group-item list-group-item-action list-group-item-light p-3" href="list.no">공지사항</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>

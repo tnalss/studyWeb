@@ -10,9 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-session.removeAttribute("category");
-%>
+
 	<div class="d-flex" id="wrapper">
 		<!-- Sidebar-->
 		<jsp:include page='include/sidebar.jsp'/>
@@ -21,8 +19,9 @@ session.removeAttribute("category");
 			<!-- Top navigation-->
 			<jsp:include page='include/navigation.jsp'/>
 			<!-- Page content-->
-			<div class="container-fluid">
+			<div class="container-fluid text-center">
 				<h1 class="mt-4 text-center">홈</h1>
+				<img src="images/home.jpg" alt="홈이미지" class="img-fluid"/>
 
 
 			</div>

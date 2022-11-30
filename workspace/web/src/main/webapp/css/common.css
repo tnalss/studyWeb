@@ -41,3 +41,13 @@ select{
 	cursor : pointer;
 	padding-left: 1rem;
 }
+
+.box{
+	width:300px;
+	margin:20px auto;
+	border : 1px solid #aaa;
+	padding : 30px 50px;
+}
+.box li {
+	margin:10px 0;
+}
