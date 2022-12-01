@@ -44,6 +44,8 @@
 						<li><input class="chk" type="text" id='userid' placeholder="아이디" /></li>
 						<li><input class="chk" type="password" id='userpw' placeholder="비밀번호" /></li>
 						<li><input onclick= "fn_login()" type="button" value="로그인" class="btn btn-primary" /></li>
+<li><hr /></li>
+						<li><input  type="button" class="naver w100" /></li>
 					</ul>
 
 				</div>
@@ -54,7 +56,10 @@
 	</div>
 <script>
 
-
+//네이버로그인 버튼 클릭시
+$('.naver').click(function(){
+	location='naverlogin.mb';
+});
 
 function fn_login(){
 	// 아이디 비밀번호 모두 input이 입력되어있는지 확인

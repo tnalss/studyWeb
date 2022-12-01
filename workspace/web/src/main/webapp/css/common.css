@@ -51,3 +51,13 @@ select{
 .box li {
 	margin:10px 0;
 }
+.naver{
+	background:url("../images/naver_login.png") center;
+	background-size: cover;
+	border:none;
+	
+}
+.w100{
+	height:40px;
+	width:150px;
+}
