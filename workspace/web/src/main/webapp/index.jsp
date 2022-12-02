@@ -20,8 +20,8 @@
 			<jsp:include page='include/navigation.jsp'/>
 			<!-- Page content-->
 			<div class="container-fluid text-center">
-				<h1 class="mt-4 text-center">홈</h1>
-				<img src="images/home.jpg" alt="홈이미지" class="img-fluid"/>
+				<h1 class="mt-4 text-center d-none">홈</h1>
+				<img src="images/home.png" alt="홈이미지" class="img-fluid"/>
 
 
 			</div>

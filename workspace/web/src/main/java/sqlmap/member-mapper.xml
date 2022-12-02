@@ -9,7 +9,26 @@
     select * from member
     where userid=#{id} and userpw = #{pw}
   </select>
-   
+  
+  <!-- 가입한적이있는지 -->
+  <select resultType="integer" id="userid_exist" >
+    SELECT count(userid) FROM member
+    WHERE userid=#{id}
+  </select>
+  
+  <!-- 회원신규저장  -->
+  <insert id="insert">
+  	INSERT INTO member(userid, userpw,name, gender, email, birth, phone, post, address, social, profile)
+  	VALUES ( #{userid} , #{userpw,jdbcType=VARCHAR},#{name}, #{gender},#{email,jdbcType=VARCHAR},#{birth,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{post,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},#{social,jdbcType=VARCHAR},#{profile,jdbcType=VARCHAR} )
+  </insert>
+  <!-- 회원정보변경저장 -->
+  <update id="update">
+	UPDATE member
+	SET name= #{name}, gender=#{gender}, email = #{email,jdbcType=VARCHAR},
+	 birth=#{birth,jdbcType=VARCHAR}, phone=#{phone,jdbcType=VARCHAR},
+	 post= #{post,jdbcType=VARCHAR}, address=#{address,jdbcType=VARCHAR},profile=#{profile,jdbcType=VARCHAR}
+	WHERE userid = #{userid}
+  </update> 
   
 </mapper>
 <!-- 매퍼등록까먹지말기 -->

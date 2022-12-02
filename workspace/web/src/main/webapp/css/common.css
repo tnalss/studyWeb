@@ -43,7 +43,7 @@ select{
 }
 
 .box{
-	width:300px;
+	width:380px;
 	margin:20px auto;
 	border : 1px solid #aaa;
 	padding : 30px 50px;
@@ -55,9 +55,30 @@ select{
 	background:url("../images/naver_login.png") center;
 	background-size: cover;
 	border:none;
+}
+.kakao{
+	background:url("../images/kakao_login.png") center;
+	background-size: cover;
+	border:none;
 	
 }
 .w100{
 	height:40px;
 	width:150px;
 }
+.loginbtn{
+	width:150px;
+}
+.profile{
+	width:30px;
+	height:30px;
+	border-radius:50%;
+}
+.font{
+	font-size: 25px;
+}
+
+
+ul li {align-items:center}
+ul li.active *{margin-right:10px;}
+

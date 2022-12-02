@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.Command;
+import member.command.KakaoCallback;
+import member.command.KakaoLogin;
 import member.command.MemberLogin;
 import member.command.MemberLogout;
 import member.command.NaverCallback;
@@ -25,6 +27,7 @@ public class MemberController extends HttpServlet {
 		// 로그인시 사용하는것들 넣어둠.
 		request.setAttribute("naver_id", "jc0TvUqPpVAcscvLYPgz");
 		request.setAttribute("naver_secret", "C7BBbocmZB");
+		request.setAttribute("kakao_id", "8aaf02d56e30aa6fd895baa3b52265d2");
 
 		String uri = request.getServletPath();
 		String view = "";
@@ -59,6 +62,22 @@ public class MemberController extends HttpServlet {
 			cmd = new NaverCallback();
 			cmd.exec(request, response);
 			//
+			view = request.getContextPath();
+			redirect=true;
+		} else if(uri.equals("/kakaologin.mb")) {
+			//카카오로그인처리 요청
+			cmd = new KakaoLogin();
+			cmd.exec(request, response);
+			
+			view = (String) request.getAttribute("url");
+			redirect=true;		
+		} else if(uri.equals("/kakaocallback.mb")) {
+			//카카오콜백처리 요청
+			cmd = new KakaoCallback();
+			cmd.exec(request, response);
+			
+			view = request.getContextPath();
+			redirect=true;
 		}
 
 		if (redirect) {

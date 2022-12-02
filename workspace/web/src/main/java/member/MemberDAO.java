@@ -29,5 +29,26 @@ public class MemberDAO {
 		return dto;
 	}
 	
+	//아이디 존재여부 파악
+	public int idExist(String id) {
+		connect();
+		int count = sql.selectOne("member.userid_exist", id );
+		
+		sql.close();
+		return count;
+	}
+	
+	//회원정보신규저장
+	public void member_insert(MemberDTO dto) {
+		connect();
+		sql.insert("member.insert",dto);
+		sql.close();
+	}
+	public void member_update(MemberDTO dto) {
+		connect();
+		sql.insert("member.update",dto);
+		sql.close();
+	}
+	
 	
 }

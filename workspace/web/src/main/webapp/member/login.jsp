@@ -34,7 +34,7 @@
 		<div id="page-content-wrapper">
 			<!-- Top navigation-->
 			<!-- Page content-->
-			<div class="container-fluid text-center">
+			<div class="container-fluid text-center mt-5">
 
 				<a href="<c:url value='/'/>"><img
 					src="<c:url value='/images/hanul.logo.png'/>" alt="hanul logo"
@@ -43,9 +43,10 @@
 					<ul>
 						<li><input class="chk" type="text" id='userid' placeholder="아이디" /></li>
 						<li><input class="chk" type="password" id='userpw' placeholder="비밀번호" /></li>
-						<li><input onclick= "fn_login()" type="button" value="로그인" class="btn btn-primary" /></li>
-<li><hr /></li>
+						<li><input onclick= "fn_login()" type="button" value="로그인" class="loginbtn btn btn-primary" /></li>
+<li><hr class="mt-3 md-3" /></li>
 						<li><input  type="button" class="naver w100" /></li>
+						<li><input  type="button" class="kakao w100" /></li>
 					</ul>
 
 				</div>
@@ -61,12 +62,18 @@ $('.naver').click(function(){
 	location='naverlogin.mb';
 });
 
+//카카오로그인 버튼 클릭시
+$('.kakao').click(function(){
+	location='kakaologin.mb';
+});
+
 function fn_login(){
 	// 아이디 비밀번호 모두 input이 입력되어있는지 확인
 	if (!emptyCheck()) return;
 	
 	$.ajax({
 		url: 'smartLogin.mb',
+		dataType : 'json',
 		data : {id : $('#userid').val() , pw : $('#userpw').val()},
 		success: function(response){
 			console.log(response);

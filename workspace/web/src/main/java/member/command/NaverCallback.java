@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import common.Command;
 import common.CommonUtility;
+import member.MemberDAO;
 import member.MemberDTO;
 
 public class NaverCallback implements Command {
@@ -69,8 +70,21 @@ public class NaverCallback implements Command {
 				dto.setProfile(json.has("profile_image")? json.getString("profile_image"):"");
 				dto.setPhone(json.getString("mobile"));
 				
+				//db에 해당 id가 존재하는지 파악
+				MemberDAO dao = new MemberDAO();
+				if( dao.idExist(dto.getUserid()) ==0 ) {
+				// 네이버로 로그인이 처음인 경우 : insert
+					dao.member_insert(dto);
+					
+				} else {
 				
-				request.setAttribute("dto", dto);
+					dao.member_update(dto);
+				// 네이버로 로그인한 적이 있는 경우 : update
+				}
+				
+								
+				request.getSession().setAttribute("loginInfo", dto);
+				
 				
 			}
 			
