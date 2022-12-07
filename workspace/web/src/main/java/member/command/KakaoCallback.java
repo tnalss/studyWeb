@@ -63,7 +63,7 @@ public class KakaoCallback implements Command {
 		    	
 		    	json = json.getJSONObject("kakao_account");
 		    	// name : 홍길동
-		    	dto.setName( json.has("name")? json.getString("name"):"noname" );
+		    	dto.setName( json.has("name") ? json.getString("name"):"noname" );
 		    	dto.setEmail( json.has("email") ? json.getString("email") : "" );
 		    	
 		    	//성별값이 female male 이런식으로 오니까 남, 여 이런식으로 바꿔야..
